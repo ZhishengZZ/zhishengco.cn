@@ -160,10 +160,32 @@ button {
 }
 
 /* ============================================================
-   HERO · Marquee (the statement IS the fold)
+   HERO · cinematic studio statement + depth
    ============================================================ */
 .hero {
-  padding-block: clamp(4rem, 12vh, 8rem) clamp(3rem, 9vh, 6rem);
+  position: relative;
+  padding-block: clamp(4rem, 10vh, 6.5rem) clamp(3.5rem, 10vh, 6rem);
+  overflow: clip;
+}
+
+/* soft amber depth behind the statement — not a blob, a faint anchor */
+.hero__glow {
+  position: absolute;
+  top: -12rem;
+  left: 50%;
+  width: min(60rem, 90vw);
+  height: 34rem;
+  transform: translateX(-50%);
+  background: radial-gradient(closest-side, oklch(60% 0.12 60 / 0.16), transparent 70%);
+  filter: blur(20px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
 }
 
 .hero__identity {
@@ -181,34 +203,66 @@ button {
   color: var(--color-muted);
 }
 
-.hero__identity .identity__rule {
-  width: 2.5rem;
-  height: var(--rule);
-  background: var(--color-rule-2);
+.hero__identity .identity__dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 0.5rem var(--color-accent);
 }
 
-.hero__statement {
-  max-width: 18ch;
-}
-
-.hero__statement h1 {
+.hero__title {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: var(--text-display);
-  line-height: 1.04;
+  font-size: clamp(2.5rem, 6vw + 0.4rem, 4.5rem);
+  line-height: 1.08;
   letter-spacing: -0.03em;
   color: var(--color-ink);
+  max-width: 12ch;
 }
 
-.hero__statement .statement__en {
+.hero__lede {
   margin-top: var(--space-xl);
+  max-width: 34ch;
+  font-size: clamp(1.05rem, 1.6vw + 0.6rem, 1.25rem);
+  line-height: 1.7;
+  color: var(--color-ink-2);
+}
+
+.hero__lede-en {
+  margin-top: var(--space-sm);
+  max-width: 40ch;
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 400;
-  font-size: clamp(1.25rem, 2.4vw + 0.4rem, 1.75rem);
-  line-height: 1.4;
+  font-size: var(--text-base);
+  line-height: 1.6;
   color: var(--color-muted);
-  max-width: 30ch;
+}
+
+.hero__scroll {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-2xl);
+  font-family: var(--font-outlier);
+  font-size: var(--text-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  transition: color var(--dur-short) var(--ease-out);
+}
+
+.hero__scroll span {
+  transition: transform var(--dur-short) var(--ease-out);
+}
+
+.hero__scroll:hover {
+  color: var(--color-ink);
+}
+
+.hero__scroll:hover span {
+  transform: translateY(0.2rem);
 }
 
 /* ---- thick rule between hero and below-fold ---- */
@@ -229,8 +283,9 @@ button {
 .projects__head {
   display: flex;
   align-items: baseline;
-  gap: var(--space-md);
-  margin-bottom: var(--space-2xl);
+  gap: var(--space-lg);
+  padding-top: var(--space-lg);
+  border-top: var(--rule) solid var(--color-rule);
 }
 
 .projects__head h2 {
@@ -266,7 +321,7 @@ button {
   padding: clamp(1.5rem, 3.5vw, 2.5rem);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  min-height: 24rem;
+  min-height: 22rem;
   will-change: transform;
 }
 
@@ -325,27 +380,41 @@ button {
 .card__lede .lede__en {
   margin-top: var(--space-xs);
   font-size: var(--text-sm);
+  line-height: 1.6;
   opacity: 0.85;
 }
 
-.card__chips {
+.card__features {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-xs);
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
 }
 
-.card__chips .chip {
-  font-size: var(--text-xs);
-  padding: 0.3rem 0.7rem;
-  border-radius: var(--radius-pill);
-  font-variant-numeric: tabular-nums;
+.card__features li {
+  position: relative;
+  padding-left: 1.1rem;
+  font-size: var(--text-sm);
+}
+
+.card__features li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.55;
 }
 
 .card__bottom {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--space-md);
+  gap: var(--space-lg);
+  margin-top: auto;
   padding-top: var(--space-lg);
   border-top: var(--rule) solid;
 }
@@ -401,9 +470,12 @@ button {
   color: var(--yeyi-muted);
 }
 
-.card--yeyi .chip {
-  background: var(--yeyi-accent-soft);
+.card--yeyi .card__features li {
   color: var(--yeyi-ink);
+}
+
+.card--yeyi .card__features li::before {
+  background: var(--yeyi-accent);
 }
 
 .card--yeyi .card__bottom {
@@ -455,9 +527,13 @@ button {
   color: var(--wx-muted);
 }
 
-.card--weather .chip {
-  background: var(--wx-accent-soft);
+.card--weather .card__features li {
   color: var(--wx-ink);
+}
+
+.card--weather .card__features li::before {
+  background: var(--wx-accent);
+  box-shadow: 0 0 0.4rem var(--wx-accent);
 }
 
 .card--weather .card__bottom {
@@ -526,7 +602,7 @@ button {
 .footer__inner {
   display: flex;
   flex-direction: column;
-  gap: var(--space-lg);
+  gap: var(--space-2xl);
 }
 
 .footer__statement {
@@ -535,13 +611,14 @@ button {
   font-size: var(--text-xl);
   color: var(--color-ink);
   max-width: 24ch;
+  line-height: 1.4;
 }
 
 .footer__meta {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-md);
+  gap: var(--space-xl);
   flex-wrap: wrap;
   padding-top: var(--space-lg);
   border-top: var(--rule) solid var(--color-rule);
@@ -563,7 +640,7 @@ button {
 
 .footer__links {
   display: flex;
-  gap: var(--space-lg);
+  gap: var(--space-xl);
 }
 
 .footer__links a {

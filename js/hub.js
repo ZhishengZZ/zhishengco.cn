@@ -38,4 +38,10 @@
   );
 
   reveals.forEach(function (el) { io.observe(el); });
+
+  /* safety: never leave below-fold content invisible if IntersectionObserver
+     doesn't fire (e.g. print, full-page capture, aggressive scroll). */
+  setTimeout(function () {
+    reveals.forEach(function (el) { el.classList.add("is-in"); });
+  }, 1500);
 })();
