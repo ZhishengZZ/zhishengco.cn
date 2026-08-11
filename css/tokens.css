@@ -64,25 +64,25 @@
   --z-raised: 10;
   --z-sticky: 200;
 
-  /* ---- colour · warm charcoal paper, amber accent (anchor hue ~58) ---- */
-  --color-paper: oklch(16% 0.012 58);
-  --color-paper-2: oklch(20% 0.014 58);
-  --color-paper-3: oklch(24% 0.015 58);
-  --color-ink: oklch(93% 0.010 58);
-  --color-ink-2: oklch(74% 0.012 58);
-  --color-muted: oklch(58% 0.012 58);
-  --color-rule: oklch(28% 0.014 58);
-  --color-rule-2: oklch(34% 0.014 58);
-  --color-accent: oklch(72% 0.15 60);
-  --color-accent-hover: oklch(78% 0.16 60);
-  --color-accent-soft: oklch(22% 0.06 58);
-  --color-accent-ink: oklch(16% 0.02 58);
-  --color-focus: oklch(70% 0.20 60);
-  --color-overlay: oklch(8% 0.01 58 / 0.55);
+  /* ---- colour · navy-black gallery wall + refined gold signature ---- */
+  --color-paper: oklch(15% 0.018 250);
+  --color-paper-2: oklch(19% 0.02 250);
+  --color-paper-3: oklch(23% 0.024 250);
+  --color-ink: oklch(93% 0.008 250);
+  --color-ink-2: oklch(77% 0.01 250);
+  --color-muted: oklch(60% 0.01 250);
+  --color-rule: oklch(28% 0.012 250);
+  --color-rule-2: oklch(34% 0.012 250);
+  --color-accent: oklch(80% 0.11 85);
+  --color-accent-hover: oklch(85% 0.12 85);
+  --color-accent-soft: oklch(24% 0.045 80);
+  --color-accent-ink: oklch(14% 0.02 250);
+  --color-focus: oklch(80% 0.13 85);
+  --color-overlay: oklch(8% 0.01 250 / 0.55);
 
   /* ---- shadows (elevation via lightness; shadows tight + dark) ---- */
-  --shadow-float: 0 1.5rem 3.5rem -2rem oklch(6% 0.01 58 / 0.7);
-  --shadow-card: 0 1rem 2.5rem -1.5rem oklch(6% 0.01 58 / 0.6);
+  --shadow-float: 0 1.5rem 3.5rem -2rem oklch(6% 0.01 250 / 0.7);
+  --shadow-card: 0 1rem 2.5rem -1.5rem oklch(6% 0.01 250 / 0.6);
 }
 
 /* ---- project card local identities (scoped, not global) ---- */
@@ -97,13 +97,13 @@
   --yeyi-accent-soft: oklch(90% 0.05 255);
   --yeyi-accent-ink: oklch(98% 0.004 260);
 
-  /* 枳生天气 · Zhisheng Weather — phosphor dark + green */
-  --wx-paper: oklch(13% 0.02 205);
-  --wx-paper-2: oklch(17% 0.022 205);
+  /* 枳生天气 · Zhisheng Weather — lifted dark phosphor + green (clearly above navy wall) */
+  --wx-paper: oklch(20% 0.028 205);
+  --wx-paper-2: oklch(24% 0.03 205);
   --wx-ink: oklch(88% 0.045 170);
-  --wx-muted: oklch(62% 0.03 190);
-  --wx-rule: oklch(26% 0.03 205);
+  --wx-muted: oklch(63% 0.03 190);
+  --wx-rule: oklch(32% 0.03 205);
   --wx-accent: oklch(80% 0.17 150);
-  --wx-accent-soft: oklch(20% 0.05 160);
+  --wx-accent-soft: oklch(28% 0.05 160);
   --wx-accent-ink: oklch(12% 0.02 170);
 }

@@ -168,7 +168,7 @@ button {
   overflow: clip;
 }
 
-/* soft amber depth behind the statement — not a blob, a faint anchor */
+/* soft gold depth behind the statement — a warm signature on the navy wall */
 .hero__glow {
   position: absolute;
   top: -12rem;
@@ -176,7 +176,7 @@ button {
   width: min(60rem, 90vw);
   height: 34rem;
   transform: translateX(-50%);
-  background: radial-gradient(closest-side, oklch(60% 0.12 60 / 0.16), transparent 70%);
+  background: radial-gradient(closest-side, oklch(72% 0.12 80 / 0.16), transparent 70%);
   filter: blur(20px);
   pointer-events: none;
   z-index: 0;
@@ -249,7 +249,7 @@ button {
   font-size: var(--text-xs);
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-muted);
+  color: var(--color-accent);
   transition: color var(--dur-short) var(--ease-out);
 }
 
@@ -258,7 +258,7 @@ button {
 }
 
 .hero__scroll:hover {
-  color: var(--color-ink);
+  color: var(--color-accent-hover);
 }
 
 .hero__scroll:hover span {
@@ -301,7 +301,7 @@ button {
   font-size: var(--text-xs);
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--color-muted);
+  color: var(--color-accent);
 }
 
 .cards {
