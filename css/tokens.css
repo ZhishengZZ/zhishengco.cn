@@ -77,30 +77,33 @@
   --color-focus: oklch(50% 0.14 75);
   --color-overlay: oklch(20% 0.02 255 / 0.5);
 
-  /* ---- shadows (tight, subtle on light) ---- */
-  --shadow-float: 0 1.5rem 3rem -2rem oklch(30% 0.02 255 / 0.18);
-  --shadow-card: 0 1rem 2.5rem -1.5rem oklch(30% 0.02 255 / 0.16);
+  /* ---- shadows (warm-tinted, tight, subtle on light) ---- */
+  --shadow-float: 0 1.5rem 3rem -2rem oklch(35% 0.02 60 / 0.28);
+  --shadow-card: 0 1rem 2.5rem -1.5rem oklch(35% 0.02 60 / 0.24);
 }
 
 /* ---- project entry identities (scoped) ---- */
 :root {
-  /* 雅译 · Yeyi — light cool-white + blue */
-  --yeyi-paper: oklch(98.5% 0.006 260);
-  --yeyi-paper-2: oklch(96% 0.01 260);
-  --yeyi-ink: oklch(24% 0.015 260);
-  --yeyi-muted: oklch(48% 0.015 260);
-  --yeyi-rule: oklch(88% 0.01 260);
+  /* 雅译 · Yeyi — warm cream echoing the ivory page + blue · Roboto Flex */
+  --yeyi-paper: oklch(97.5% 0.016 90);
+  --yeyi-paper-2: oklch(95% 0.018 90);
+  --yeyi-ink: oklch(24% 0.015 255);
+  --yeyi-muted: oklch(44% 0.015 255);
+  --yeyi-rule: oklch(88% 0.012 90);
   --yeyi-accent: oklch(52% 0.19 255);
   --yeyi-accent-soft: oklch(91% 0.05 255);
-  --yeyi-accent-ink: oklch(98% 0.004 260);
+  --yeyi-glow: oklch(52% 0.19 255 / 0.16);
+  --yeyi-font: "Roboto Flex", "Noto Sans SC", sans-serif;
 
-  /* 枳生天气 · Zhisheng Weather — refined dark phosphor panel + green (muted, not heavy) */
-  --wx-paper: oklch(19% 0.02 205);
-  --wx-paper-2: oklch(23% 0.022 205);
-  --wx-ink: oklch(90% 0.045 170);
-  --wx-muted: oklch(67% 0.028 190);
-  --wx-rule: oklch(30% 0.03 205);
-  --wx-accent: oklch(82% 0.17 150);
-  --wx-accent-soft: oklch(26% 0.05 160);
-  --wx-accent-ink: oklch(12% 0.02 170);
+  /* 枳生天气 · Zhisheng Weather — warm peacock-teal dark (hue shifts warm to connect ivory) + phosphor · JetBrains Mono */
+  --wx-paper: oklch(24% 0.024 175);
+  --wx-paper-2: oklch(28% 0.026 175);
+  --wx-ink: oklch(90% 0.05 160);
+  --wx-muted: oklch(68% 0.03 180);
+  --wx-rule: oklch(35% 0.028 175);
+  --wx-accent: oklch(82% 0.17 148);
+  --wx-accent-soft: oklch(29% 0.05 155);
+  --wx-glow: oklch(82% 0.17 148 / 0.2);
+  --wx-highlight: oklch(96% 0.02 155 / 0.06);
+  --wx-font: "JetBrains Mono", ui-monospace, monospace;
 }

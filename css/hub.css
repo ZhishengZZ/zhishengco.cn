@@ -23,7 +23,10 @@ html {
 
 body {
   height: 100%;
-  background: var(--color-paper);
+  background:
+    radial-gradient(ellipse 70% 55% at 72% 0%, oklch(98.5% 0.008 80), transparent 60%),
+    radial-gradient(ellipse 40% 30% at 100% 100%, oklch(88% 0.02 160 / 0.35), transparent 70%),
+    linear-gradient(180deg, oklch(97.5% 0.012 80) 0%, oklch(93.5% 0.015 82) 100%);
   color: var(--color-ink-2);
   font-family: var(--font-body);
   font-size: var(--text-base);
@@ -156,12 +159,32 @@ a {
    ============================================================ */
 .split {
   flex: 1 1 auto;
+  position: relative;
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
   gap: clamp(2rem, 5vw, 5rem);
   align-items: center;
   padding-block: clamp(1.25rem, 4vh, 2.75rem);
   min-height: 0;
+}
+
+/* soft gold depth behind the statement (not a blob — a faint warm anchor) */
+.split__glow {
+  position: absolute;
+  top: -6rem;
+  left: -6rem;
+  width: min(42rem, 60vw);
+  height: 42rem;
+  background: radial-gradient(closest-side, oklch(70% 0.11 80 / 0.18), transparent 70%);
+  filter: blur(24px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.split__left,
+.split__right {
+  position: relative;
+  z-index: 1;
 }
 
 /* ---- left: statement ---- */
@@ -222,7 +245,7 @@ a {
   font-style: italic;
   font-weight: 400;
   font-size: var(--text-base);
-  color: var(--color-muted);
+  color: var(--color-ink-2);
 }
 
 .split__src {
@@ -257,18 +280,42 @@ a {
   gap: var(--space-lg);
   padding: clamp(1.25rem, 2.2vw, 1.75rem) clamp(1.25rem, 2.2vw, 1.75rem);
   border-radius: var(--radius-lg);
+  overflow: hidden;
   box-shadow: var(--shadow-card);
   transition: transform var(--dur-short) var(--ease-out), box-shadow var(--dur-short) var(--ease-out);
 }
 
-.entry:hover {
-  transform: translateY(-0.25rem);
+.entry::before {
+  content: "";
+  position: absolute;
+  top: -3rem;
+  right: -2rem;
+  width: 12rem;
+  height: 12rem;
+  background: radial-gradient(closest-side, var(--entry-glow), transparent 72%);
+  filter: blur(8px);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .entry__body {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   gap: var(--space-xs);
+}
+
+.entry__arrow {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+  font-size: var(--text-xl);
+  transition: transform var(--dur-short) var(--ease-out);
+}
+
+.entry:hover {
+  transform: translateY(-0.25rem);
 }
 
 .entry__meta {
@@ -305,21 +352,22 @@ a {
   line-height: 1.5;
 }
 
-.entry__arrow {
-  flex: 0 0 auto;
-  font-size: var(--text-xl);
-  transition: transform var(--dur-short) var(--ease-out);
-}
-
 .entry:hover .entry__arrow {
   transform: translateX(0.25rem);
 }
 
 /* entry · 雅译 */
 .entry--yeyi {
+  --entry-glow: var(--yeyi-glow);
   background: linear-gradient(150deg, var(--yeyi-paper), var(--yeyi-paper-2));
   color: var(--yeyi-ink);
-  border: var(--rule) solid oklch(88% 0.012 80);
+  border: var(--rule) solid oklch(84% 0.014 200);
+  box-shadow: 0 1rem 2.5rem -1.25rem oklch(35% 0.05 70 / 0.26);
+}
+
+.entry--yeyi .entry__name h2 {
+  font-family: var(--yeyi-font);
+  font-weight: 600;
 }
 
 .entry--yeyi .entry__meta {
@@ -340,8 +388,26 @@ a {
 
 /* entry · 枳生天气 */
 .entry--weather {
+  --entry-glow: var(--wx-glow);
   background: linear-gradient(155deg, var(--wx-paper), var(--wx-paper-2));
   color: var(--wx-ink);
+}
+
+/* glass top highlight — makes the dark panel read as a lit electronic surface */
+.entry--weather::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 45%;
+  background: linear-gradient(180deg, var(--wx-highlight), transparent);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.entry--weather .entry__name h2 {
+  font-family: var(--wx-font);
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 .entry--weather .entry__meta {
@@ -357,7 +423,7 @@ a {
 }
 
 .entry--weather:hover {
-  box-shadow: 0 1.5rem 3rem -1.5rem oklch(20% 0.05 205 / 0.5);
+  box-shadow: 0 1.5rem 3rem -1.5rem oklch(20% 0.05 205 / 0.5), 0 0 2.5rem -0.5rem var(--wx-glow);
 }
 
 /* ============================================================
