@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>枳生 Zhisheng · 独立开发者</title>
+  <meta name="description" content="枳生 Zhisheng 的独立开发作品：雅译（Chrome 网页翻译扩展）与枳生天气（Android 天气应用）。做能被每天用起来的东西。">
+  <meta name="theme-color" content="#1a1712">
+  <meta property="og:title" content="枳生 Zhisheng · 独立开发者">
+  <meta property="og:description" content="做能被每天用起来的东西。雅译 · 枳生天气">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/hub.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="site">
+    <header class="site-nav" id="top">
+      <div class="page-shell nav-inner">
+        <a class="brand" href="#top" aria-label="枳生 Zhisheng 首页">
+          枳生<span class="brand__en">Zhisheng</span>
+        </a>
+        <nav class="nav-links" aria-label="页面导航">
+          <a href="#projects">项目</a>
+          <a class="nav-link--accent" href="https://github.com/ZhishengZZ" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero hero-enter page-shell" aria-labelledby="hero-title">
+        <div class="hero__identity">
+          <span class="identity__mono">ZhishengZZ · 独立开发者</span>
+          <span class="identity__rule" aria-hidden="true"></span>
+          <span class="identity__mono">Independent developer</span>
+        </div>
+        <div class="hero__statement">
+          <h1 id="hero-title">做能被每天<br>用起来的东西。</h1>
+          <p class="statement__en">I build things that get used every day — quietly, and well.</p>
+        </div>
+      </section>
+
+      <hr class="rule-thick" aria-hidden="true">
+
+      <section class="projects page-shell" id="projects" aria-labelledby="projects-title">
+        <div class="projects__head">
+          <h2 id="projects-title">正在做的东西</h2>
+          <span class="projects__mono">Selected work</span>
+        </div>
+
+        <div class="cards">
+          <article class="card card--yeyi reveal" style="--i:0">
+            <div class="card__top">
+              <div class="card__meta">
+                <span class="meta__dot" aria-hidden="true"></span>
+                <span>Chrome 扩展 · 翻译</span>
+                <span>·</span>
+                <span>Chrome extension</span>
+              </div>
+              <div class="card__name">
+                <h3>雅译</h3>
+                <span class="name__en">Yeyi</span>
+              </div>
+              <div class="card__lede">
+                <p class="lede__zh">译文留在原文旁边，整页双语、划词即译，不打断阅读。</p>
+                <p class="lede__en" lang="en">Webpage translation that keeps you reading — bilingual, in place.</p>
+              </div>
+              <ul class="card__chips" aria-label="雅译功能">
+                <li class="chip">整页双语</li>
+                <li class="chip">划词即译</li>
+                <li class="chip">AI 总结</li>
+                <li class="chip">六种译风</li>
+              </ul>
+            </div>
+            <div class="card__bottom">
+              <a class="card__action" href="https://yeyi.zhishengco.cn" target="_blank" rel="noreferrer">
+                进入雅译<span class="action__arrow" aria-hidden="true">→</span>
+              </a>
+              <a class="card__source" href="https://github.com/ZhishengZZ/yeyi-translator" target="_blank" rel="noreferrer">GitHub ↗</a>
+            </div>
+          </article>
+
+          <article class="card card--weather reveal" style="--i:1">
+            <div class="card__top">
+              <div class="card__meta">
+                <span class="meta__dot" aria-hidden="true"></span>
+                <span>Android 应用 · 天气</span>
+                <span>·</span>
+                <span>Android app</span>
+              </div>
+              <div class="card__name">
+                <h3>枳生天气</h3>
+                <span class="name__en">Zhisheng Weather</span>
+              </div>
+              <div class="card__lede">
+                <p class="lede__zh">出门之前，看这一屏。实况、预警、逐时与 15 天趋势排成一条路。</p>
+                <p class="lede__en" lang="en">One screen before you step out — live, alerts, hourly, 15-day.</p>
+              </div>
+              <ul class="card__chips" aria-label="枳生天气功能">
+                <li class="chip">实况预警</li>
+                <li class="chip">逐时降水</li>
+                <li class="chip">15 天趋势</li>
+                <li class="chip">无广告</li>
+              </ul>
+            </div>
+            <div class="card__bottom">
+              <a class="card__action" href="https://weather.zhishengco.cn" target="_blank" rel="noreferrer">
+                进入天气<span class="action__arrow" aria-hidden="true">→</span>
+              </a>
+              <a class="card__source" href="https://github.com/ZhishengZZ/ZhishengWeather" target="_blank" rel="noreferrer">GitHub ↗</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="more page-shell" aria-label="更多">
+        <div class="more__inner">
+          <p>还有更多想法在路上。欢迎来 GitHub 看看，或给某个项目提个 issue。</p>
+          <a class="more__link" href="https://github.com/ZhishengZZ" target="_blank" rel="noreferrer">
+            View all on GitHub <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer page-shell">
+      <div class="footer__inner">
+        <p class="footer__statement">用热爱，做想用的东西。</p>
+        <div class="footer__meta">
+          <div>
+            <span class="foot-brand">枳生</span>
+            <span class="foot-mono"> · Zhisheng · Since 2024</span>
+          </div>
+          <nav class="footer__links" aria-label="项目链接">
+            <a href="https://yeyi.zhishengco.cn" target="_blank" rel="noreferrer">雅译</a>
+            <a href="https://weather.zhishengco.cn" target="_blank" rel="noreferrer">天气</a>
+            <a href="https://github.com/ZhishengZZ" target="_blank" rel="noreferrer">GitHub</a>
+          </nav>
+        </div>
+        <p class="footer__fine">© 2026 枳生 Zhisheng · 独立开发者</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/hub.js" defer></script>
+</body>
+</html>
